@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Support Tickets @ GKroon</title>
+  <link rel="icon" href="gk.png" type="icon">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="gk.png" alt="GKroon Logo">
+    </div>
+    <button class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="about.html" data-tooltip="Learn about GKroon">About</a></li>
+      <li><a href="index.html" data-tooltip="Our Services To Companies">Company Services</a></li>
+      <li><a href="web-design.html" data-tooltip="Web Design & Development">Web Design & Development</a></li>
+      <li><a href="index1.html" data-tooltip="Check Out Our Domain & Hosting Packages">Domain & Hosting</a></li>
+      <li><a href="smartphone-repairs.html" data-tooltip="We Offer Smartphone Repair Services">Smartphone Repairs</a></li>
+      <li><a href="tickets.html" data-tooltip="Support Tickets" class="active">Support</a></li>
+      <li><a href="dashboard.html" data-tooltip="Dashboard">Dashboard</a></li>
+      <li><a href="#" id="logout-btn" data-tooltip="Sign Out">Sign Out</a></li>
+    </ul>
+  </nav>
+
+  <div class="tickets-container">
+    <div class="tickets-header">
+      <div>
+        <h1>Support Tickets</h1>
+        <p>View and manage your support requests</p>
+      </div>
+      <a href="create-ticket.html" class="create-ticket-btn">
+        <i class="fas fa-plus"></i> Create New Ticket
+      </a>
+    </div>
+
+    <div class="tickets-filters">
+      <button class="filter-btn active" data-filter="all">
+        <i class="fas fa-th"></i> All Tickets
+      </button>
+      <button class="filter-btn" data-filter="open">
+        <i class="fas fa-folder-open"></i> Open
+      </button>
+      <button class="filter-btn" data-filter="in-progress">
+        <i class="fas fa-spinner"></i> In Progress
+      </button>
+      <button class="filter-btn" data-filter="resolved">
+        <i class="fas fa-check-circle"></i> Resolved
+      </button>
+      <button class="filter-btn" data-filter="closed">
+        <i class="fas fa-times-circle"></i> Closed
+      </button>
+    </div>
+
+    <div class="tickets-search">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="tickets-search" placeholder="Search tickets by title or description...">
+      </div>
+    </div>
+
+    <div id="tickets-list" class="tickets-list">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Loading tickets...</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <p>Follow us on social media.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" target="_blank" class="social-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank" class="social-icon" aria-label="X (Twitter)">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://wa.me/+27661199255" target="_blank" class="social-icon" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://linkedin.com/company/gkroon" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <div class="legal-links">
+          <a href="#" class="legal-link">Privacy Policy</a>
+          <a href="#" class="legal-link">Terms & Conditions</a>
+          <a href="mailto:info.gkroon@gmail.com" class="legal-link">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; <script>document.write(new Date().getFullYear())</script> GKroon (Pty) Ltd. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="tickets.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
