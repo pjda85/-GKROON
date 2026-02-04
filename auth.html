@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sign In / Sign Up @ GKroon</title>
+  <link rel="icon" href="gk.png" type="icon">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="gk.png" alt="GKroon Logo">
+    </div>
+    <button class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="about.html" data-tooltip="Learn about GKroon">About</a></li>
+      <li><a href="index.html" data-tooltip="Our Services To Companies">Company Services</a></li>
+      <li><a href="web-design.html" data-tooltip="Web Design & Development">Web Design & Development</a></li>
+      <li><a href="index1.html" data-tooltip="Check Out Our Domain & Hosting Packages">Domain & Hosting</a></li>
+      <li><a href="smartphone-repairs.html" data-tooltip="We Offer Smartphone Repair Services">Smartphone Repairs</a></li>
+      <li><a href="https://g-kroon.github.io/Contact-Us/" data-tooltip="Contact Us">Contact Us</a></li>
+      <li><a href="auth.html" data-tooltip="Sign In / Sign Up" class="auth-link">Sign In</a></li>
+    </ul>
+  </nav>
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Sign In</button>
+        <button class="auth-tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <div id="auth-message" class="auth-message hidden"></div>
+
+      <div id="login-form" class="auth-form-container active">
+        <form id="loginForm" class="auth-form" novalidate>
+          <h2>Welcome Back</h2>
+          <p class="form-subtitle">Sign in to access your account</p>
+
+          <div class="form-group">
+            <label for="login-email">
+              <i class="fas fa-envelope"></i> Email Address
+            </label>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              placeholder="your.email@example.com"
+              required
+              autocomplete="email"
+            >
+            <span class="error-message" id="login-email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">
+              <i class="fas fa-lock"></i> Password
+            </label>
+            <div class="password-input-wrapper">
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="toggle-password" data-target="login-password">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span class="error-message" id="login-password-error"></span>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="remember-me">
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="login-submit-btn">
+            <span class="btn-text">Sign In</span>
+            <span class="btn-loader hidden"><i class="fas fa-spinner fa-spin"></i></span>
+          </button>
+        </form>
+      </div>
+
+      <div id="signup-form" class="auth-form-container">
+        <form id="signupForm" class="auth-form" novalidate>
+          <h2>Create Account</h2>
+          <p class="form-subtitle">Join us to access all features</p>
+
+          <div class="form-group">
+            <label for="signup-fullname">
+              <i class="fas fa-user"></i> Full Name
+            </label>
+            <input
+              type="text"
+              id="signup-fullname"
+              name="fullname"
+              placeholder="John Doe"
+              required
+              autocomplete="name"
+            >
+            <span class="error-message" id="signup-fullname-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-email">
+              <i class="fas fa-envelope"></i> Email Address
+            </label>
+            <input
+              type="email"
+              id="signup-email"
+              name="email"
+              placeholder="your.email@example.com"
+              required
+              autocomplete="email"
+            >
+            <span class="error-message" id="signup-email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-phone">
+              <i class="fas fa-phone"></i> Phone Number (Optional)
+            </label>
+            <input
+              type="tel"
+              id="signup-phone"
+              name="phone"
+              placeholder="+27 123 456 7890"
+              autocomplete="tel"
+            >
+            <span class="error-message" id="signup-phone-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-password">
+              <i class="fas fa-lock"></i> Password
+            </label>
+            <div class="password-input-wrapper">
+              <input
+                type="password"
+                id="signup-password"
+                name="password"
+                placeholder="Create a strong password"
+                required
+                autocomplete="new-password"
+              >
+              <button type="button" class="toggle-password" data-target="signup-password">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="password-strength" id="password-strength">
+              <div class="strength-bar">
+                <div class="strength-bar-fill"></div>
+              </div>
+              <span class="strength-text">Password strength</span>
+            </div>
+            <span class="error-message" id="signup-password-error"></span>
+            <ul class="password-requirements">
+              <li id="req-length"><i class="fas fa-circle"></i> At least 8 characters</li>
+              <li id="req-uppercase"><i class="fas fa-circle"></i> One uppercase letter</li>
+              <li id="req-lowercase"><i class="fas fa-circle"></i> One lowercase letter</li>
+              <li id="req-number"><i class="fas fa-circle"></i> One number</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-confirm-password">
+              <i class="fas fa-lock"></i> Confirm Password
+            </label>
+            <div class="password-input-wrapper">
+              <input
+                type="password"
+                id="signup-confirm-password"
+                name="confirm-password"
+                placeholder="Re-enter your password"
+                required
+                autocomplete="new-password"
+              >
+              <button type="button" class="toggle-password" data-target="signup-confirm-password">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span class="error-message" id="signup-confirm-password-error"></span>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="agree-terms" required>
+              <span>I agree to the <a href="#" target="_blank">Terms & Conditions</a></span>
+            </label>
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="signup-submit-btn">
+            <span class="btn-text">Create Account</span>
+            <span class="btn-loader hidden"><i class="fas fa-spinner fa-spin"></i></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <p>Follow us on social media.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" target="_blank" class="social-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank" class="social-icon" aria-label="X (Twitter)">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://wa.me/+27661199255" target="_blank" class="social-icon" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://linkedin.com/company/gkroon" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <div class="legal-links">
+          <a href="#" class="legal-link">Privacy Policy</a>
+          <a href="#" class="legal-link">Terms & Conditions</a>
+          <a href="mailto:info.gkroon@gmail.com" class="legal-link">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; <script>document.write(new Date().getFullYear())</script> GKroon (Pty) Ltd. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
